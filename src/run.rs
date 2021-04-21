@@ -15,7 +15,7 @@ use crate::{
 pub fn run(path: PathBuf) -> Result<(), String> {
     // just one file, for now
     let (_manifest, path) = Manifest::package(&path)?;
-    let file = path.join("src").join(ENTRYPOINT);
+    let file = path.join(SOURCE).join(ENTRYPOINT);
 
     let source = Source::path(&file)
         .map_err(|_| format!("Could not find source entrypoint '{}/{}'", SOURCE, ENTRYPOINT))?;
